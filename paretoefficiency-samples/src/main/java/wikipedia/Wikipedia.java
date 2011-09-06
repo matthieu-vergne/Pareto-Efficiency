@@ -37,6 +37,10 @@ public class Wikipedia extends JFrame {
 		});
 		comparator.setDimensionComparator(1, new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
+				/*
+				 * the comparison is reversed because the graphical Y is in the
+				 * opposite sense of the mathematical Y.
+				 */
 				return -Integer.valueOf(o1.y).compareTo(Integer.valueOf(o2.y));
 			}
 		});

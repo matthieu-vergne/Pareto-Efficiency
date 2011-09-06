@@ -37,14 +37,11 @@ public class Canvas extends JPanel {
 			yMax = Math.max(yMax, coords.y);
 			yMin = Math.min(yMin, coords.y);
 		}
-		System.out.println("Draw in [" + xMin + "," + yMin + "]->[" + xMax
-				+ "," + yMax + "]");
 		double xRate = (double) getWidth() / (xMax - xMin);
 		double yRate = (double) getHeight() / (yMax - yMin);
 		int width = 10;
 		int height = 10;
 
-		int counter = 0;
 		for (Point coords : getPoints()) {
 			int xDraw = (int) Math.floor(xRate * coords.x);
 			int yDraw = (int) Math.floor(yRate * coords.y);
@@ -55,7 +52,6 @@ public class Canvas extends JPanel {
 				g.setColor(Color.BLUE);
 			}
 			g.fillRect(xDraw - width / 2, yDraw - height / 2, width, height);
-			System.out.println("draw " + (++counter) + " : " + coords);
 		}
 	}
 
