@@ -8,10 +8,8 @@ import java.util.HashSet;
  * 
  * @author Matthieu Vergne <matthieu.vergne@gmail.com>
  * 
- * @param <Individual>
- *            The type of individuals checked.
  */
-public class ParetoHelper<Individual> {
+public class ParetoHelper {
 
 	/**
 	 * This method looks for the individuals of the pareto frontier, considering
@@ -23,7 +21,7 @@ public class ParetoHelper<Individual> {
 	 *            the pareto comparator to use
 	 * @return the individuals at the pareto frontier
 	 */
-	public Collection<Individual> getMaximalFrontierOf(
+	public static <Individual> Collection<Individual> getMaximalFrontierOf(
 			final Collection<Individual> population,
 			final ParetoComparator<?, Individual> comparator) {
 		OrderChecker<Individual> checker = new OrderChecker<Individual>() {
@@ -46,7 +44,7 @@ public class ParetoHelper<Individual> {
 	 *            the pareto comparator to use
 	 * @return the individuals at the pareto frontier
 	 */
-	public Collection<Individual> getMinimalFrontierOf(
+	public static <Individual> Collection<Individual> getMinimalFrontierOf(
 			final Collection<Individual> population,
 			final ParetoComparator<?, Individual> comparator) {
 		OrderChecker<Individual> checker = new OrderChecker<Individual>() {
@@ -70,7 +68,7 @@ public class ParetoHelper<Individual> {
 	 *            the checker to use
 	 * @return the individuals of the frontier identified by the checker
 	 */
-	private Collection<Individual> getFrontierOf(
+	private static <Individual> Collection<Individual> getFrontierOf(
 			final Collection<Individual> population,
 			OrderChecker<Individual> checker) {
 		Collection<Individual> frontier = new HashSet<Individual>(population);

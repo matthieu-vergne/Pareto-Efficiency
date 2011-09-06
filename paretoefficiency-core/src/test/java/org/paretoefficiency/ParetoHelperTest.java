@@ -38,14 +38,12 @@ public class ParetoHelperTest {
 		Collection<Point> points = new HashSet<Point>(Arrays.asList(p00, p01,
 				p02, p10, p11, p12, p20, p21, p22));
 
-		ParetoHelper<Point> helper = new ParetoHelper<Point>();
-
 		// XXO
 		// XXX
 		// XXX
 		{
-			Collection<Point> frontier = helper.getMaximalFrontierOf(points,
-					comparator);
+			Collection<Point> frontier = ParetoHelper
+					.<Point> getMaximalFrontierOf(points, comparator);
 			assertEquals(1, frontier.size());
 			assertTrue(frontier.contains(p22));
 		}
@@ -55,8 +53,8 @@ public class ParetoHelperTest {
 		// XXX
 		{
 			points.remove(p22);
-			Collection<Point> frontier = helper.getMaximalFrontierOf(points,
-					comparator);
+			Collection<Point> frontier = ParetoHelper
+					.<Point> getMaximalFrontierOf(points, comparator);
 			assertEquals(2, frontier.size());
 			assertTrue(frontier.contains(p12));
 			assertTrue(frontier.contains(p21));
@@ -68,8 +66,8 @@ public class ParetoHelperTest {
 		{
 			points.remove(p12);
 			points.remove(p21);
-			Collection<Point> frontier = helper.getMaximalFrontierOf(points,
-					comparator);
+			Collection<Point> frontier = ParetoHelper
+					.<Point> getMaximalFrontierOf(points, comparator);
 			assertEquals(3, frontier.size());
 			assertTrue(frontier.contains(p02));
 			assertTrue(frontier.contains(p11));
@@ -103,14 +101,12 @@ public class ParetoHelperTest {
 		Collection<Point> points = new HashSet<Point>(Arrays.asList(p00, p01,
 				p02, p10, p11, p12, p20, p21, p22));
 
-		ParetoHelper<Point> helper = new ParetoHelper<Point>();
-
 		// XXX
 		// XXX
 		// OXX
 		{
-			Collection<Point> frontier = helper.getMinimalFrontierOf(points,
-					comparator);
+			Collection<Point> frontier = ParetoHelper
+					.<Point> getMinimalFrontierOf(points, comparator);
 			assertEquals(1, frontier.size());
 			assertTrue(frontier.contains(p00));
 		}
@@ -120,8 +116,8 @@ public class ParetoHelperTest {
 		// _OX
 		{
 			points.remove(p00);
-			Collection<Point> frontier = helper.getMinimalFrontierOf(points,
-					comparator);
+			Collection<Point> frontier = ParetoHelper
+					.<Point> getMinimalFrontierOf(points, comparator);
 			assertEquals(2, frontier.size());
 			assertTrue(frontier.contains(p01));
 			assertTrue(frontier.contains(p10));
@@ -133,8 +129,8 @@ public class ParetoHelperTest {
 		{
 			points.remove(p01);
 			points.remove(p10);
-			Collection<Point> frontier = helper.getMinimalFrontierOf(points,
-					comparator);
+			Collection<Point> frontier = ParetoHelper
+					.<Point> getMinimalFrontierOf(points, comparator);
 			assertEquals(3, frontier.size());
 			assertTrue(frontier.contains(p02));
 			assertTrue(frontier.contains(p11));
