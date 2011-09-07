@@ -71,17 +71,17 @@ public class ParetoHelper {
 	private static <Individual> Collection<Individual> getFrontierOf(
 			final Collection<Individual> population,
 			OrderChecker<Individual> checker) {
-		Collection<Individual> frontier = new HashSet<Individual>(population);
+		Collection<Individual> frontier = new HashSet<Individual>();
 		for (Individual i1 : population) {
-			Boolean remove = false;
-			for (Individual i2 : frontier) {
+			Boolean add = true;
+			for (Individual i2 : population) {
 				if (checker.canOrderAs(i1, i2)) {
-					remove = true;
+					add = false;
 					break;
 				}
 			}
-			if (remove) {
-				frontier.remove(i1);
+			if (add) {
+				frontier.add(i1);
 			}
 		}
 		return frontier;
