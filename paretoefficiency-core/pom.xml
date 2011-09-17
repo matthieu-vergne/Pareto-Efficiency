@@ -7,12 +7,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.paretoefficiency</groupId>
 	<artifactId>paretoefficiency-core</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-
-	<name>Pareto Efficiency</name>
-	<description>Pareto efficiency toolbox.</description>
+	<name>Pareto Efficiency (core)</name>
+	<description>Pareto efficiency toolbox implementation.</description>
 	<inceptionYear>2011</inceptionYear>
 
 	<issueManagement>

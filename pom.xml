@@ -32,6 +32,19 @@
 		<developerConnection>scm:git:git@github.com:${github.username}/Pareto-Efficiency.git</developerConnection>
 		<url>https://github.com/Sazaju/Pareto-Efficiency</url>
 	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
   <modules>
   	<module>paretoefficiency-core</module>
   	<module>paretoefficiency-samples</module>
