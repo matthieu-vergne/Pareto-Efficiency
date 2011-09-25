@@ -77,7 +77,7 @@ public class ParetoComparator<Dimension, Individual> implements
 	 * as equivalent</li>
 	 * <li>if A is better than B on at least one dimension and worst on at least
 	 * one another, A and B are considered as equivalent, as we cannot decide
-	 * wich one is better</li>
+	 * which one is better</li>
 	 * </ul>
 	 */
 	public int compare(Individual a, Individual b) {
@@ -87,8 +87,7 @@ public class ParetoComparator<Dimension, Individual> implements
 				reference = (int) Math.signum(comparator.compare(a, b));
 			} else {
 				int comparison = (int) Math.signum(comparator.compare(a, b));
-				int product = comparison * reference;
-				if (product < 0) {
+				if (comparison * reference < 0) {
 					// one better, another worst : cannot decide
 					return 0;
 				}

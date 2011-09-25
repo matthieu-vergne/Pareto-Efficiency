@@ -53,7 +53,6 @@ public class ParetoHelper {
 				return comparator.compare(i1, i2) > 0;
 			}
 		};
-
 		return getFrontierOf(population, checker);
 	}
 

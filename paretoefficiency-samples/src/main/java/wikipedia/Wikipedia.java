@@ -13,6 +13,8 @@ import javax.swing.WindowConstants;
 import org.paretoefficiency.ParetoComparator;
 import org.paretoefficiency.ParetoHelper;
 
+import common.Canvas;
+
 /**
  * This sample take the example of the Pareto frontier described on <a
  * href="http://en.wikipedia.org/wiki/Pareto_efficiency#Pareto_frontier"

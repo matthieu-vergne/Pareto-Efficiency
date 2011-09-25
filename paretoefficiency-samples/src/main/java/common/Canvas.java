@@ -1,4 +1,4 @@
-package wikipedia;
+package common;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -37,14 +37,22 @@ public class Canvas extends JPanel {
 			yMax = Math.max(yMax, coords.y);
 			yMin = Math.min(yMin, coords.y);
 		}
-		double xRate = (double) getWidth() / (xMax - xMin);
-		double yRate = (double) getHeight() / (yMax - yMin);
+		int dX = (xMax - xMin)/10;
+		int dY = (yMax - yMin)/10;
+		xMax += dX;
+		xMin -= dX;
+		yMax += dY;
+		yMin -= dY;
+		dX = xMax - xMin;
+		dY = yMax - yMin;
+		double xRate = (double) getWidth() / dX;
+		double yRate = (double) getHeight() / dY;
 		int width = 10;
 		int height = 10;
 
 		for (Point coords : getPoints()) {
-			int xDraw = (int) Math.floor(xRate * coords.x);
-			int yDraw = (int) Math.floor(yRate * coords.y);
+			int xDraw = (int) Math.floor(xRate * (coords.x - xMin));
+			int yDraw = (int) Math.floor(yRate * (coords.y - yMin));
 
 			if (getFrontier().contains(coords)) {
 				g.setColor(Color.RED);
