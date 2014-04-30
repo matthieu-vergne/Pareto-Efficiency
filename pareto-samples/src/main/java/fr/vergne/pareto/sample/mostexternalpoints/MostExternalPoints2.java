@@ -39,12 +39,12 @@ public class MostExternalPoints2 extends JFrame {
 	Point center = new Point();
 
 	public MostExternalPoints2() {
-		ParetoComparator<Integer, Point> comparator = new ParetoComparator<Integer, Point>();
-		comparator.setDimensionComparator(0, new Comparator<Point>() {
+		ParetoComparator<Point> comparator = new ParetoComparator<Point>();
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
-				Double r1 = Math.hypot(o1.x, o1.y);
+				Integer r1 = o1.x * o1.x + o1.y * o1.y;
 				Double a1 = Math.signum(o1.y) * Math.acos(o1.x / r1);
-				Double r2 = Math.hypot(o2.x, o2.y);
+				Integer r2 = o2.x * o2.x + o2.y * o2.y;
 				Double a2 = Math.signum(o2.y) * Math.acos(o2.x / r1);
 
 				/*

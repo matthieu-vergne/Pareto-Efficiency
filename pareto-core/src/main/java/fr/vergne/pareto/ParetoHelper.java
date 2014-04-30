@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 /**
- * This helper give some methods useful for pareto efficiency check.
+ * This helper give some methods useful for Pareto efficiency check.
  * 
  * @author Matthieu Vergne <matthieu.vergne@gmail.com>
  * 
@@ -12,18 +12,18 @@ import java.util.HashSet;
 public class ParetoHelper {
 
 	/**
-	 * This method looks for the individuals of the pareto frontier, considering
+	 * This method looks for the individuals of the Pareto frontier, considering
 	 * we are looking for maximal individuals.
 	 * 
 	 * @param population
 	 *            the individuals to check
 	 * @param comparator
-	 *            the pareto comparator to use
-	 * @return the individuals at the pareto frontier
+	 *            the Pareto comparator to use
+	 * @return the individuals at the Pareto frontier
 	 */
 	public static <Individual> Collection<Individual> getMaximalFrontierOf(
 			final Collection<Individual> population,
-			final ParetoComparator<?, Individual> comparator) {
+			final ParetoComparator<Individual> comparator) {
 		OrderChecker<Individual> checker = new OrderChecker<Individual>() {
 
 			public boolean canOrderAs(Individual i1, Individual i2) {
@@ -35,18 +35,18 @@ public class ParetoHelper {
 	}
 
 	/**
-	 * This method looks for the individuals of the pareto frontier, considering
+	 * This method looks for the individuals of the Pareto frontier, considering
 	 * we are looking for minimal individuals.
 	 * 
 	 * @param population
 	 *            the individuals to check
 	 * @param comparator
-	 *            the pareto comparator to use
-	 * @return the individuals at the pareto frontier
+	 *            the Pareto comparator to use
+	 * @return the individuals at the Pareto frontier
 	 */
 	public static <Individual> Collection<Individual> getMinimalFrontierOf(
 			final Collection<Individual> population,
-			final ParetoComparator<?, Individual> comparator) {
+			final ParetoComparator<Individual> comparator) {
 		OrderChecker<Individual> checker = new OrderChecker<Individual>() {
 
 			public boolean canOrderAs(Individual i1, Individual i2) {

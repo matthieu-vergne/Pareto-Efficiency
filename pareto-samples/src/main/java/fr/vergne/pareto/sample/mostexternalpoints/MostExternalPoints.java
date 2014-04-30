@@ -54,14 +54,16 @@ public class MostExternalPoints extends JFrame {
 	Point center = new Point();
 
 	public MostExternalPoints() {
-		ParetoComparator<Integer, Point> comparator = new ParetoComparator<Integer, Point>();
-		comparator.setDimensionComparator(0, new Comparator<Point>() {
+		ParetoComparator<Point> comparator = new ParetoComparator<Point>();
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				/*
 				 * The bounding to positive values (regarding the center) is
 				 * important, as without it all the points are selected for the
 				 * frontier. But I cannot explain it further as I do not get why
 				 * for the moment.
+				 * 
+				 * TODO explain
 				 */
 				boolean getX = true;
 				Integer d1 = Math.max(0, getCoord(o1, getX));
@@ -69,7 +71,7 @@ public class MostExternalPoints extends JFrame {
 				return d1.compareTo(d2);
 			}
 		});
-		comparator.setDimensionComparator(1, new Comparator<Point>() {
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				boolean getX = false;
 				Integer d1 = Math.max(0, getCoord(o1, getX));
@@ -77,7 +79,7 @@ public class MostExternalPoints extends JFrame {
 				return d1.compareTo(d2);
 			}
 		});
-		comparator.setDimensionComparator(2, new Comparator<Point>() {
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				boolean getX = true;
 				Integer d1 = Math.max(0, -getCoord(o1, getX));
@@ -85,7 +87,7 @@ public class MostExternalPoints extends JFrame {
 				return d1.compareTo(d2);
 			}
 		});
-		comparator.setDimensionComparator(3, new Comparator<Point>() {
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				boolean getX = false;
 				Integer d1 = Math.max(0, -getCoord(o1, getX));

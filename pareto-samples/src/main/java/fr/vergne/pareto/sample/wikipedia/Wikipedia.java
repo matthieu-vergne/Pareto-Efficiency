@@ -31,13 +31,13 @@ public class Wikipedia extends JFrame {
 	}
 
 	public Wikipedia() throws URISyntaxException {
-		ParetoComparator<Integer, Point> comparator = new ParetoComparator<Integer, Point>();
-		comparator.setDimensionComparator(0, new Comparator<Point>() {
+		ParetoComparator<Point> comparator = new ParetoComparator<Point>();
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				return Integer.valueOf(o1.x).compareTo(Integer.valueOf(o2.x));
 			}
 		});
-		comparator.setDimensionComparator(1, new Comparator<Point>() {
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				/*
 				 * the comparison is reversed because the graphical Y is in the

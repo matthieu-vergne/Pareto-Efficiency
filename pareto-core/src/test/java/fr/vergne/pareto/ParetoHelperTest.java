@@ -14,13 +14,13 @@ public class ParetoHelperTest {
 
 	@Test
 	public void testMaximalFrontier() {
-		ParetoComparator<Integer, Point> comparator = new ParetoComparator<Integer, Point>();
-		comparator.setDimensionComparator(0, new Comparator<Point>() {
+		ParetoComparator<Point> comparator = new ParetoComparator<Point>();
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				return Integer.valueOf(o1.x).compareTo(Integer.valueOf(o2.x));
 			}
 		});
-		comparator.setDimensionComparator(1, new Comparator<Point>() {
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				return Integer.valueOf(o1.y).compareTo(Integer.valueOf(o2.y));
 			}
@@ -77,13 +77,13 @@ public class ParetoHelperTest {
 
 	@Test
 	public void testMinimalFrontier() {
-		ParetoComparator<Integer, Point> comparator = new ParetoComparator<Integer, Point>();
-		comparator.setDimensionComparator(0, new Comparator<Point>() {
+		ParetoComparator<Point> comparator = new ParetoComparator<Point>();
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				return Integer.valueOf(o1.x).compareTo(Integer.valueOf(o2.x));
 			}
 		});
-		comparator.setDimensionComparator(1, new Comparator<Point>() {
+		comparator.add(new Comparator<Point>() {
 			public int compare(Point o1, Point o2) {
 				return Integer.valueOf(o1.y).compareTo(Integer.valueOf(o2.y));
 			}
